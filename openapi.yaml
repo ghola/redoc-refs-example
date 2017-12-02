@@ -1,0 +1,39 @@
+openapi: 3.0.0
+info:
+  title: My API
+paths:
+# Routers
+  '/routers/{router_id}':
+    parameters:
+      - $ref: '#/components/parameters/router_id'
+    get:
+      tags:
+        - Routers
+      summary: Get a Router by ID
+      responses:
+        '200':
+          description: Successful request
+          content:
+            application/json:
+              schema:
+                type: object
+                description: The Router resource.
+                properties:
+                  id:
+                    $ref: '/schemas/router.yaml#/router_id'
+                  type:
+                    type: string
+                    description: The resource type
+                    enum:
+                      - router
+components:
+  parameters:
+    router_id:
+      name: router_id
+      in: path
+      required: true
+      description: The Router ID
+      schema:
+        $ref: '/schemas/router.yaml#/router_id'
+tags:
+  - name: Routers

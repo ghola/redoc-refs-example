@@ -1,0 +1,4 @@
+router_id:
+  type: string
+  description: The Router ID
+  example: '4756'
